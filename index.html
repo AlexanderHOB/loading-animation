@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Loading Animation</title>
+	<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+	<div class="content">
+		<img src="https://picsum.photos/300/300?random" alt="random">
+	</div>
+	<div class="loader-wrapper" id="loader-wrapper">
+		<span class="loader"><span class="loader-inner"></span></span>
+	</div>
+	<script>
+		window.onload=function(){
+			var $loader=document.getElementById("loader-wrapper");
+			fadeOutEffect($loader);
+		}
+		function fadeOutEffect(loader){
+			var fadeEffect=setInterval(function (){
+				if(!loader.style.opacity){
+					loader.style.opacity=1;
+				}
+				if(loader.style.opacity>0){
+					loader.style.opacity-=0.1;
+				}
+				else{
+					clearInterval(fadeEffect);
+				}
+			},50)
+		}
+	</script>
+</body>
+</html>
